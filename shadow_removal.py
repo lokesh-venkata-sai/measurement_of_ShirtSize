@@ -7,7 +7,7 @@ import scipy as sp
 from matplotlib import pyplot as plt
 
 # Image operation using thresholding
-img = cv2.imread('img18.jpeg')
+img = cv2.imread('images/from_phone/img75-1.jpg')
 
 cv2.namedWindow("output1", cv2.WINDOW_GUI_NORMAL)
 cv2.namedWindow("output2", cv2.WINDOW_GUI_NORMAL)

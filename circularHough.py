@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('otsu_Img16.jpeg',0)
+img = cv2.imread('oldimg/otsu_img28.jpeg',0)
 img = cv2.GaussianBlur(img,(5,5),0)
 img = cv2.medianBlur(img, 5)
 cv2.namedWindow("output1", cv2.WINDOW_GUI_NORMAL)
@@ -19,10 +19,13 @@ for i in circles[0,:]:
     # draw the center of the circle
     cv2.circle(cimg,(i[0],i[1]),2,(0,0,255),3)
 
-print(circles)
+
+print(circles) #[x,y,r]
 print("done")
-#cv2.imwrite("E:\study\sem 6\R&D\proj\impl\Hough1_Img17.jpeg", cimg);
+#cv2.imwrite("E:\study\sem 6\R&D\proj\impl\oldimg\Hough1_img27.jpeg", cimg);
 cv2.imshow('output1',img)
 cv2.imshow('output2',cimg)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+#radius=69 for img27, radius=70 for img28

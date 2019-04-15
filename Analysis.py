@@ -5,12 +5,12 @@ import sklearn.preprocessing
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 
-path = "sizedata.csv"
+path = "E:/study/sem 6/R&D/proj/filtereddata.csv"
 
 df=pd.read_csv(path)
 
 Y=df[["Actual (in cm)"]]
-z=df[["W75","W100","W150"]]#for multiple linear regression
+z=df[["ratio75","ratio100","ratio150"]]#for multiple linear regression
 lm1=LinearRegression()
 lm1.fit(z,Y)
 print("intercept is ",lm1.intercept_)
@@ -22,10 +22,10 @@ pyplot.show()"""
 
 
 
-predict =z.iloc[16:22,]
-vector=Y.iloc[0:16,]
-poly = PolynomialFeatures(degree=2)
-x=z.iloc[0:16,]
+predict =z.iloc[0:39,]
+vector=Y.iloc[0:34,]
+poly = PolynomialFeatures(degree=3)
+x=z.iloc[0:34,]
 
 X_ = poly.fit_transform(x)
 predict_ = poly.fit_transform(predict)

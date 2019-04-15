@@ -12,7 +12,7 @@ x=21;
 
 #im_name="images/cropimg75-"+str(x)+".jpeg"
 
-im_name="oldimg\otsu_image1.jpeg"   #should give the  inversted otsu output to findContours
+im_name="oldimg\otsu_image2.jpeg"   #should give the  inversted otsu output to findContours
 
 image = cv2.imread(im_name)
 image = cv2.bitwise_not(image)
@@ -72,10 +72,10 @@ cv2.putText(image, "{:.1f}in".format(dB),
 # extreme points, where the left-most is red, right-most
 # is green, top-most is blue, and bottom-most is teal
 cv2.drawContours(image, [c], -1, (0, 255, 255), 2)
-cv2.circle(image, extLeft, 6, (0, 0, 255), -1)
-cv2.circle(image, extRight, 6, (0, 255, 0), -1)
-cv2.circle(image, extTop, 6, (255, 0, 0), -1)
-cv2.circle(image, extBot, 6, (255, 255, 0), -1)
+cv2.circle(image, extLeft, 15, (0, 0, 255), -1)
+cv2.circle(image, extRight, 15, (0, 255, 0), -1)
+cv2.circle(image, extTop, 15, (255, 0, 0), -1)
+cv2.circle(image, extBot, 15, (255, 255, 0), -1)
 
 
 # show the output image

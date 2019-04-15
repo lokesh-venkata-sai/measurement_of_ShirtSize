@@ -8,18 +8,19 @@ import numpy as np
 x=1;
 # load the image, convert it to grayscale, and blur it slightly
 for x in range(21,22):
-	#print(x)
 
-	im_name="images/cropimg75-"+str(x)+".jpeg"
 
-	#im_name="oldimg\otsu_image1.jpeg"   #should give the  inversted otsu output to findContours
+	#im_name="images/from_phone/img75-"+str(x)+".jpg"
+	im_name = "images/from_phone/otsu/img75-" + str(x) + ".jpeg"
+	#im_name="oldimg\image2.jpg"   #should give the  inversted otsu output to findContours
 
 	#im_name="images/test1.jpeg"
 	#print(im_name)
 	image = cv2.imread(im_name)
-	#image = cv2.bitwise_not(image)
+	image = cv2.bitwise_not(image)
 	#image=cropimage.crop_bottom_half(image)
-	#Testing
+
+	gray = cv2.pyrMeanShiftFiltering(image,51,91)
 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 	gray = cv2.GaussianBlur(gray, (5, 5), 0)
 	#gray = cv2.Canny(gray, 100, 200)
@@ -44,7 +45,10 @@ for x in range(21,22):
 
 	#dB1 = dist.euclidean((extLeft[0], extRight[0]), (extLeft[1], extRight[1]))
 	#print("left: ",extLeft," right: ",extRight)
+	
 	dB = dist.euclidean(extLeft,extRight)
+	#dB = dist.euclidean(extLeft,extRight)
+
 	#dB = dist.euclidean(extLeft,extBot)
 	#print(dB," ",dB1)
 	print(dB)
@@ -55,10 +59,10 @@ for x in range(21,22):
 	# extreme points, where the left-most is red, right-most
 	# is green, top-most is blue, and bottom-most is teal
 	cv2.drawContours(image, [c], -1, (0, 255, 255), 2)
-	cv2.circle(image, extLeft, 6, (0, 0, 255), -1)
-	cv2.circle(image, extRight, 6, (0, 255, 0), -1)
-	cv2.circle(image, extTop, 6, (255, 0, 0), -1)
-	cv2.circle(image, extBot, 6, (255, 255, 0), -1)
+	cv2.circle(image, extLeft, 15, (0, 0, 255), -1)
+	cv2.circle(image, extRight, 15, (0, 255, 0), -1)
+	cv2.circle(image, extTop, 15, (255, 0, 0), -1)
+	cv2.circle(image, extBot, 15, (255, 255, 0), -1)
 
 	# show the output image
 	cv2.namedWindow('Image',cv2.WINDOW_NORMAL )
