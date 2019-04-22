@@ -7,7 +7,7 @@ import numpy as np
 #from crop import cropimage
 x=1;
 # load the image, convert it to grayscale, and blur it slightly
-for x in range(21,22):
+for x in range(1,2):
 
 
 	#im_name="images/from_phone/img75-"+str(x)+".jpg"
@@ -59,8 +59,8 @@ for x in range(21,22):
 	# extreme points, where the left-most is red, right-most
 	# is green, top-most is blue, and bottom-most is teal
 	cv2.drawContours(image, [c], -1, (0, 255, 255), 2)
-	cv2.circle(image, extLeft, 15, (0, 0, 255), -1)
-	cv2.circle(image, extRight, 15, (0, 255, 0), -1)
+	cv2.circle(image, extLeft, 25, (0, 0, 255), -1)
+	cv2.circle(image, extRight, 25, (0, 255, 0), -1)
 	cv2.circle(image, extTop, 15, (255, 0, 0), -1)
 	cv2.circle(image, extBot, 15, (255, 255, 0), -1)
 

@@ -10,8 +10,8 @@ from matplotlib import pyplot as plt
 #img = cv2.imread('images/cropimg200-21.jpeg')
 #img = cv2.imread('oldimg/img25.jpeg')
 
-for x in range(21,22):
-    im_name="images/from_phone/img200-"+str(x)+".jpg"
+for x in range(1,2):
+    im_name="images/from_phone/img75-"+str(x)+".jpg"
     #im_name="oldimg/img28.jpeg"
     img = cv2.imread(im_name)
 

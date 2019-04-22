@@ -3,15 +3,15 @@ from matplotlib import pyplot
 import seaborn as sns
 import sklearn.preprocessing
 from sklearn.linear_model import LinearRegression
-import numpy as np
 from sklearn.preprocessing import PolynomialFeatures
+import sklearn.metrics as m
 
-path = "sizedata.csv"
+path = "E:/study/sem 6/R&D/proj/impl/book.csv"
 
 df=pd.read_csv(path)
 
 Y=df[["Actual (in cm)"]]
-z=df[["W75","W100","W150"]]#for multiple linear regression
+z=df[["ratio75","ratio100"]]#for multiple linear regression
 lm1=LinearRegression()
 lm1.fit(z,Y)
 print("intercept is ",lm1.intercept_)
@@ -21,17 +21,28 @@ Yhat=lm1.predict(z)
 sns.distplot(Yhat, hist=False, color="b", label="Fitted Values" , ax=ax1)#Yhat is given as a predicted values (calculated before)
 pyplot.show()"""
 
-x=df['W100'];
-y=df["W150"];
-x_test = x.iloc[16:22,]
-f=np.polyfit(x.iloc[0:16,],y.iloc[0:16,],6);
-p=np.poly1d(f)
-print("---------------------------------------------")
-print(p)
-print("---------prediction of W100 from W75 -------------")
-yhat=p(x_test)
-print(yhat)
-ax1 = sns.distplot(df['W150'], hist=False, color="r", label="Actual Value")
-sns.distplot(yhat, hist=False, color="b", label="Fitted Values" , ax=ax1)#Yhat is given as a predicted values (calculated before)
-pyplot.title("from W100 to W150")
+
+
+predict =z.iloc[0:38,]
+vector=Y.iloc[0:34,]
+poly = PolynomialFeatures(degree=5)
+x=z.iloc[0:34,]
+
+X_ = poly.fit_transform(x)
+predict_ = poly.fit_transform(predict)
+
+clf = sklearn.linear_model.LinearRegression()
+clf.fit(X_, vector)
+Yhat=clf.predict(predict_)
+print("predicted values")
+print(Yhat)
+print("--------------------------")
+print(x.shape)
+print(vector.shape)
+print(predict.shape)
+print(Y.shape)
+print(m.r2_score(Y[0:34],Yhat[0:34]))
+print(m.mean_squared_error(Y[0:34],Yhat[0:34]))
+ax1 = sns.distplot(df['Actual (in cm)'], hist=False, color="r", label="Actual Value")
+sns.distplot(Yhat[0:34], hist=False, color="b", label="Fitted Values" , ax=ax1)#Yhat is given as a predicted values (calculated before)
 pyplot.show()
