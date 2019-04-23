@@ -23,10 +23,10 @@ pyplot.show()"""
 
 
 
-predict =z.iloc[0:39,]
-vector=Y.iloc[0:34,]
-poly = PolynomialFeatures(degree=3)
-x=z.iloc[0:34,]
+predict =z.iloc[32:39,]
+vector=Y.iloc[0:32,]
+poly = PolynomialFeatures(degree=2)
+x=z.iloc[0:32,]
 
 X_ = poly.fit_transform(x)
 predict_ = poly.fit_transform(predict)
@@ -41,8 +41,8 @@ print(x.shape)
 print(vector.shape)
 print(predict.shape)
 print(Y.shape)
-print(m.r2_score(Y[0:37],Yhat[0:37]))
-print(m.mean_squared_error(Y[0:37],Yhat[0:37]))
+print(m.r2_score(Y[32:39],Yhat))
+print(m.mean_squared_error(Y[32:39],Yhat))
 ax1 = sns.distplot(df['Actual (in cm)'], hist=False, color="r", label="Actual Value")
-sns.distplot(Yhat[0:37], hist=False, color="b", label="Fitted Values" , ax=ax1)#Yhat is given as a predicted values (calculated before)
+sns.distplot(Yhat, hist=False, color="b", label="Fitted Values" , ax=ax1)#Yhat is given as a predicted values (calculated before)
 pyplot.show()
