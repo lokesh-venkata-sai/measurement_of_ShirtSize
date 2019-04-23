@@ -12,7 +12,7 @@ from matplotlib import pyplot as plt
 
 for x in range(1,2):
     im_name="images/from_phone/img75-"+str(x)+".jpg"
-    #im_name="oldimg/img28.jpeg"
+    im_name="oldimg/img28.jpeg"
     img = cv2.imread(im_name)
 
     cropped = cropimage.crop_bottom_half(img)

@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('oldimg/otsu_img28.jpeg',0)
+img = cv2.imread('oldimg/otsu_img32.jpeg',0)
 img = cv2.GaussianBlur(img,(5,5),0)
 img = cv2.medianBlur(img, 5)
 cv2.namedWindow("output1", cv2.WINDOW_GUI_NORMAL)
@@ -22,7 +22,7 @@ for i in circles[0,:]:
 
 print(circles) #[x,y,r]
 print("done")
-#cv2.imwrite("E:\study\sem 6\R&D\proj\impl\oldimg\Hough1_img27.jpeg", cimg);
+#cv2.imwrite("E:\study\sem 6\R&D\proj\impl\oldimg\Hough1_img32.jpeg", cimg);
 cv2.imshow('output1',img)
 cv2.imshow('output2',cimg)
 cv2.waitKey(0)

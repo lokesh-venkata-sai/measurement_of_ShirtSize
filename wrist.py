@@ -11,7 +11,7 @@ largest_contour_index = 0
 # load the image, convert it to grayscale, and blur it slightly
 for x in range(21, 22):
     #im_name = "oldimg/otsu_image1.jpeg"
-    im_name="oldimg/Hough1_img28.jpeg"
+    im_name="oldimg/Hough1_img32.jpeg"
     image = cv2.imread(im_name)
 
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -35,6 +35,7 @@ for x in range(21, 22):
     #print(extBot[1])
     dB = dist.euclidean(extBot, (cX, height)) * 2
 
+    print(dB/2)
     print(dB)
     cv2.putText(image, "{:.1f}in".format(dB),
                 (10, 500), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (255, 255, 255), 2)
