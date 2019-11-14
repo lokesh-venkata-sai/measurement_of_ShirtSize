@@ -7,7 +7,7 @@ import numpy as np
 #from crop import cropimage
 x=1;
 # load the image, convert it to grayscale, and blur it slightly
-for x in range(1,2):
+for x in range(21,22):
 
 
 	#im_name="images/from_phone/img75-"+str(x)+".jpg"

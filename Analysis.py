@@ -12,18 +12,18 @@ df=pd.read_csv(path)
 
 Y=df[["Actual (in cm)"]]
 z=df[["ratio75","ratio100","ratio150"]]#for multiple linear regression
-lm1=LinearRegression()
+"""lm1=LinearRegression()
 lm1.fit(z,Y)
 print("intercept is ",lm1.intercept_)
 print("coefficients are ",lm1.coef_)
 Yhat=lm1.predict(z)
-"""ax1 = sns.distplot(df['Actual (in cm)'], hist=False, color="r", label="Actual Value")
+ax1 = sns.distplot(df['Actual (in cm)'], hist=False, color="r", label="Actual Value")
 sns.distplot(Yhat, hist=False, color="b", label="Fitted Values" , ax=ax1)#Yhat is given as a predicted values (calculated before)
 pyplot.show()"""
 
 
 
-predict =z.iloc[32:39,]
+predict =z.iloc[32:40,]
 vector=Y.iloc[0:32,]
 poly = PolynomialFeatures(degree=2)
 x=z.iloc[0:32,]
@@ -37,12 +37,12 @@ Yhat=clf.predict(predict_)
 print("predicted values")
 print(Yhat)
 print("--------------------------")
-print(x.shape)
-print(vector.shape)
-print(predict.shape)
-print(Y.shape)
-print(m.r2_score(Y[32:39],Yhat))
-print(m.mean_squared_error(Y[32:39],Yhat))
+# print(x.shape)
+# print(vector.shape)
+# print(predict.shape)
+# print(Y.shape)
+print(m.r2_score(Y[32:40],Yhat))
+print(m.mean_squared_error(Y[32:40],Yhat))
 ax1 = sns.distplot(df['Actual (in cm)'], hist=False, color="r", label="Actual Value")
 sns.distplot(Yhat, hist=False, color="b", label="Fitted Values" , ax=ax1)#Yhat is given as a predicted values (calculated before)
 pyplot.show()
